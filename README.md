@@ -1,9 +1,22 @@
-# React + Vite
+# Full Stack Contact Form
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Building a Full Stack Contact Form using React and Node.js
 
-Currently, two official plugins are available:
+## Purpose of Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# full-stack-contact-form
+- Integrate Domain Email
+- Create a Frontend
+- Set up a Backend
+- Deploy Application
+
+## Prerequisites and Tools
+
+- Javascript
+- HTML
+- CSS
+- Node.js
+- NPM
+- Vite
+- React
+
+## Setting up the Frontend
