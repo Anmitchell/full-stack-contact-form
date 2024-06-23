@@ -48,6 +48,7 @@ function ContactForm() {
       message: message.value,
     };
 
+    // Send information from contact form to backend
     try {
       let response = await fetch('http://localhost:5000/send', {
         method: 'POST',
