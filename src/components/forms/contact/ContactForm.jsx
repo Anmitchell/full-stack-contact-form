@@ -33,10 +33,53 @@ function ContactForm() {
     }
   }
 
+  // Extracts data from the form, initiates a POST Request to the backend, and handles response message
+  const handleSubmit = async (e) => {
+    setResult('');
+    e.preventDefault();
+    setStatus('Sending...');
+    console.log(e.target.elements);
+
+    const { name, email, message } = e.target.elements;
+
+    let details = {
+      name: name.value,
+      email: email.value,
+      message: message.value,
+    };
+
+    try {
+      let response = await fetch('http://localhost:5000/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+          body: JSON.stringify(details),
+        },
+      });
+      setStatus('Submit');
+      let result = await response.json();
+      if (result.status === 'success') {
+        setResult('Message Sent!');
+        resetEmailForm();
+      } else if (result.status === 'fail') {
+        alert('Uh oh! Message failed to send.');
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus('Submit');
+      setResult('Uh oh! Issues with submitting message.');
+    }
+  };
+
   return (
     <>
       <h1 className={styles.h1}>Contact Me</h1>
-      <form id='contact-form' className={styles.contactForm}>
+      <form
+        id='contact-form'
+        onSubmit={handleSubmit}
+        method='POST'
+        className={styles.contactForm}
+      >
         <input
           placeholder='name'
           type='text'
